@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 
 #include "Slav.h"
@@ -57,7 +58,7 @@ void containers(Slav * slavs, int n)
  		vectorOfSlavs.insert(vectorOfSlavs.begin()+position,slavs+i);
  	}
 
-    // Wykorzystując iterator i funkcję description(), wyświetl wszystkich Słowian w wektorze
+    // Wykorzystując iterator i funkcję description(), wyświetl wszystkich Słowian w wektorze.
 	vectorOfSlavs.pop_back();
  	vector<Slav*>::iterator it_vec;
  	for(it_vec=vectorOfSlavs.begin();it_vec!=vectorOfSlavs.end();it_vec++)
@@ -76,7 +77,7 @@ void containers(Slav * slavs, int n)
 	REPORT_CONTAINERS;
 	printf("## map\n");
 
-	// Stwórz słownik tworzący pary Słowian, z tych znajdujących się w zbiorze, czyszcząc zbiór
+	// Stwórz słownik tworzący pary Słowian, z tych znajdujących się w zbiorze, czyszcząc zbiór.
     map<Slav*,Slav*>::iterator it_map;
   	set<Slav*>::iterator it_set=setOfSlavs.begin();
   	set<Slav*>::iterator it_set_delete=setOfSlavs.begin();
@@ -84,14 +85,11 @@ void containers(Slav * slavs, int n)
  	{
   		mapOfSlavs[*it_set++]=*it_set++;
   		setOfSlavs.erase(it_set_delete++);
-  		setOfSlavs.erase(it_set_delete++);
-
  	}
 
-	// Wykorzystując iterator, wyświetl wszystkie pary Słowian
+	// Wykorzystując iterator, wyświetl wszystkie pary Słowian.
 	for(it_map=mapOfSlavs.begin();it_map!=mapOfSlavs.end();it_map++)
  		cout<<(*it_map).first->description()<<" "<<(*it_map).second->description()<<endl;
-
 
 	REPORT_CONTAINERS;
 }
@@ -112,6 +110,7 @@ void adapters(Slav * slavs, int n)
 	REPORT_ADAPTERS;
 
 	printf("## stack\n");
+
 	// Przenieś Słowian z kolejki do stosu.
 	for(int i=0;i<n;i++)
  	{
@@ -121,7 +120,7 @@ void adapters(Slav * slavs, int n)
 
 	REPORT_ADAPTERS;
 
-	// Wyświetl Słowian zdejmowanych ze stosu
+	// Wyświetl Słowian zdejmowanych ze stosu.
 	for(int i=0;i<n;i++)
  	{
  		cout<<(*stackOfSlavs.top()).description()<<endl;;
