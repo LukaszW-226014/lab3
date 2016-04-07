@@ -67,7 +67,7 @@ void containers(Slav * slavs, int n)
 	REPORT_CONTAINERS;
 	printf("## set\n");
 
-	// Przenieś wszystkich Słowian z wektoru do zbioru.
+	// Przenieś wszystkich Słowian z wektoru do  zbioru.
     for(int i=0;i<n;i++)
  		{
  			setOfSlavs.insert(vectorOfSlavs[i]);
