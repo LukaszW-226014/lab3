@@ -48,8 +48,8 @@ void containers(Slav * slavs, int n)
 	REPORT_CONTAINERS;
 	printf("## vector\n");
 
+	// Umieść Słowian w losowej kolejności w wektorze.
     vectorOfSlavs.push_back(NULL);
- 	// Umieść Słowian w losowej kolejności w wektorze.
  	srand(time(NULL));
  	for(int i=0;i<n;i++)
  	{
@@ -57,34 +57,32 @@ void containers(Slav * slavs, int n)
  		vectorOfSlavs.insert(vectorOfSlavs.begin()+position,slavs+i);
  	}
 
-    vectorOfSlavs.pop_back();
- 	// Wykorzystując iterator i funkcję description(), wyświetl wszystkich Słowian w wektorze
+    // Wykorzystując iterator i funkcję description(), wyświetl wszystkich Słowian w wektorze
+	vectorOfSlavs.pop_back();
  	vector<Slav*>::iterator it_vec;
  	for(it_vec=vectorOfSlavs.begin();it_vec!=vectorOfSlavs.end();it_vec++)
  		cout<<(*it_vec)->description()<<endl;
-	// Wykorzystując iterator i funkcję description(), wyświetl wszystkich Słowian w wektorze
 
 	REPORT_CONTAINERS;
 	printf("## set\n");
 
+	// Przenieś wszystkich Słowian z wektoru do zbioru.
     for(int i=0;i<n;i++)
  		{
  			setOfSlavs.insert(vectorOfSlavs[i]);
  			vectorOfSlavs.pop_back();
  		}
-	// Przenieś wszystkich Słowian z wektoru do zbioru.
 
 	REPORT_CONTAINERS;
 	printf("## map\n");
 
 	// Stwórz słownik tworzący pary Słowian, z tych znajdujących się w zbiorze, czyszcząc zbiór
-
     map<Slav*,Slav*>::iterator it_map;
   	set<Slav*>::iterator it_set=setOfSlavs.begin();
   	set<Slav*>::iterator it_set_delete=setOfSlavs.begin();
- 	while(it_set!=setOfSlavs.end())//ten sprytny sposob nie moj,ale dobry programista to leniwy programista
+ 	while(it_set!=setOfSlavs.end())
  	{
-  		mapOfSlavs[*it_set++]=*it_set++;//diabel tkwi w inkrementacji po wykonaniu operacji
+  		mapOfSlavs[*it_set++]=*it_set++;
   		setOfSlavs.erase(it_set_delete++);
   		setOfSlavs.erase(it_set_delete++);
 
